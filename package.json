@@ -1,0 +1,22 @@
+{
+  "name": "altv-server",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --watch src --ext ts --exec \"npm run start\"",
+    "update": "cd bin && altv-pkg release",
+    "start": "npm run compile && cd bin && altv-server.exe",
+    "compile": "rimraf bin/resources && swc src -d bin/resources --strip-leading-paths && copyfiles -u 1 \"src/**/!(*.ts)\" bin/resources"
+  },
+  "devDependencies": {
+    "@altv/types-client": "^16.2.7",
+    "@altv/types-natives": "^16.2.1",
+    "@altv/types-server": "^16.2.5",
+    "@altv/types-shared": "^16.2.4",
+    "@swc/cli": "^0.4.0",
+    "@swc/core": "^1.7.24",
+    "altv-pkg": "^2.7.5",
+    "copyfiles": "^2.4.1",
+    "nodemon": "^3.1.4",
+    "rimraf": "^6.0.1"
+  }
+}

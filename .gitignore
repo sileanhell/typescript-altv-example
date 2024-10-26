@@ -1,0 +1,4 @@
+node_modules
+bin/*
+!bin/server.toml
+!bin/.altvpkgrc.json
